@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Chroma, { Color } from 'chroma-js';
 import Results from '../results/results';
+import styles from './styles.module.css';
 import { IAppState } from './types';
 
 export default class App extends Component {
@@ -28,7 +29,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.appView}>
         <Results
           foreground={this.state.foreground}
           background={this.state.background}

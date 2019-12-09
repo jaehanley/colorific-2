@@ -1,0 +1,6 @@
+.appView {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 30px;
+}

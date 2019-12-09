@@ -15,22 +15,28 @@ const ResultView = (props: IResultViewProps) => {
         ? Ranking.AALarge
         : Ranking.Fail
   return (
-    <div style={{
-      backgroundColor: props.background.hex(),
-      color: props.foreground.hex()
-    }}>
+    <div
+      className={styles.resultView}
+      style={{
+        backgroundColor: props.background.hex(),
+        color: props.foreground.hex()
+      }}
+    >
       <h4
+        className={styles.perceptionLabel}
         aria-label='color perception'
       >
         {props.label}
       </h4>
-      <div>
+      <div className={styles.contrastContainer}>
         <b
+          className={styles.contrastRating}
           aria-label='accessibility rating'
         >
           {rank}
         </b>
         <i
+          className={styles.contrastRatio}
           aria-label={`contrast ratio: ${contrastRating.toFixed(3)} to 1`}
         >
           {contrastRating.toFixed(3)}:1
@@ -112,12 +118,19 @@ const Achromatopsia = (props: IResultsProps) => (
 );
 
 const Results = (props: IResultsProps) => (
-  <div className={styles.view}>
+  <div
+    className={styles.view}
+    style={{
+      backgroundColor: props.background.luminance() >= 0.5
+        ? '#000'
+        : '#fff'
+    }}
+  >
     <Common
       foreground={props.foreground}
       background={props.background}
     />
-    <div>
+    <div className={styles.threeRows}>
       <Protanomaly
         foreground={props.foreground}
         background={props.background}
@@ -131,7 +144,7 @@ const Results = (props: IResultsProps) => (
         background={props.background}
       />
     </div>
-    <div>
+    <div className={styles.threeRows}>
       <Protanopia
         foreground={props.foreground}
         background={props.background}
@@ -145,7 +158,7 @@ const Results = (props: IResultsProps) => (
         background={props.background}
       />
     </div>
-    <div>
+    <div className={styles.twoRows}>
       <Achromatomaly
         foreground={props.foreground}
         background={props.background}
