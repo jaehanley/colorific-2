@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Chroma, { Color } from 'chroma-js';
 import Results from '../results/results';
+import Control from '../control/control';
 import styles from './styles.module.css';
 import { IAppState } from './types';
 
-export default class App extends Component {
-  state: IAppState = {
+export default class App extends Component<{}, IAppState> {
+  state = {
     foreground: Chroma('black'),
     background: Chroma('white')
   }
@@ -33,6 +34,13 @@ export default class App extends Component {
         <Results
           foreground={this.state.foreground}
           background={this.state.background}
+        />
+        <Control
+          foreground={this.state.foreground}
+          background={this.state.background}
+          onSetForeground={this.setForeground}
+          onSetBackground={this.setBackground}
+          onSwapColors={this.swapColors}
         />
       </div>
     );

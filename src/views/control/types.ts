@@ -1,11 +1,20 @@
 import { Color } from 'chroma-js';
 
 export interface IControlProps {
-  /** Input color value, a Chroma-js object */
-  value: Color;
+  /** Foreground color chroma-js object */
+  foreground: Color;
+  /** Background color chroma-js object */
+  background: Color;
   /**
-   * Fires when color value has change
-   * @param value the new color value, as a Chroma-js object
+   * Sets the foreground color
+   * @param foreground chroma-js color object
    */
-  onChange: (value: Color) => void;
+  onSetForeground: (foreground: Color) => void;
+  /**
+   * Sets the background color
+   * @param background chroma-js color object
+   */
+  onSetBackground: (background: Color) => void;
+  /** callback to swap the foreground and background colors */
+  onSwapColors: () => void;
 }

@@ -1,18 +1,17 @@
 import { Color } from 'chroma-js';
 
 export interface IColorInputProps {
-  /** The foreground color chroma-js object */
-  foreground: Color;
-  /** The background color chroma-js object */
-  background: Color;
+  /** The label used for the button input */
+  label: string;
+  /**  Color chroma-js object */
+  color: Color;
   /**
-   * Callback to set the foreground color
+   * Callback to set the color
    * @param color a Chroma-js color object
    */
-  onUpdateForeground: (color: Color) => void;
-  /**
-   * Callback to set the background color
-   * @param color a Chroma-js color object
-   */
-  onUpdateBackground: (color: Color) => void;
+  onChange: (color: Color) => void;
+}
+
+export interface IColorInputState {
+  showColorPicker: boolean;
 }

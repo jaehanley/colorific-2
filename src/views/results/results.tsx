@@ -25,6 +25,11 @@ const ResultView = (props: IResultViewProps) => {
       <h4
         className={styles.perceptionLabel}
         aria-label='color perception'
+        style={{
+          color: contrast('#000', props.background) >= contrast('#fff', props.background)
+            ? '#000'
+            : '#fff'
+        }}
       >
         {props.label}
       </h4>
@@ -121,9 +126,9 @@ const Results = (props: IResultsProps) => (
   <div
     className={styles.view}
     style={{
-      backgroundColor: props.background.luminance() >= 0.5
-        ? '#000'
-        : '#fff'
+      backgroundColor: contrast('#000', props.background) >= contrast('#fff', props.background)
+      ? '#000'
+      : '#fff'
     }}
   >
     <Common
