@@ -5,10 +5,12 @@ import Control from '../control/control';
 import styles from './styles.module.css';
 import { IAppState } from './types';
 
+const defaultToDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
 export default class App extends Component<{}, IAppState> {
   state = {
-    foreground: Chroma('black'),
-    background: Chroma('white')
+    foreground: defaultToDark ? Chroma('white') : Chroma('black'),
+    background: defaultToDark ? Chroma('Black') : Chroma('white')
   }
 
   /**
