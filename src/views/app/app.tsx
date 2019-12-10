@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Chroma, { Color } from 'chroma-js';
+import Chroma, { Color, contrast } from 'chroma-js';
 import Results from '../results/results';
 import Control from '../control/control';
 import styles from './styles.module.css';
@@ -9,8 +9,8 @@ const defaultToDark = window.matchMedia && window.matchMedia('(prefers-color-sch
 
 export default class App extends Component<{}, IAppState> {
   state = {
-    foreground: defaultToDark ? Chroma('white') : Chroma('black'),
-    background: defaultToDark ? Chroma('Black') : Chroma('white')
+    foreground: defaultToDark ? Chroma('#eee') : Chroma('#111'),
+    background: defaultToDark ? Chroma('#111') : Chroma('#eee')
   }
 
   /**
@@ -32,7 +32,14 @@ export default class App extends Component<{}, IAppState> {
 
   render() {
     return (
-      <div className={styles.appView}>
+      <div
+        className={styles.appView}
+        style={{
+          backgroundColor: contrast('#000', this.state.background) >= contrast('#fff', this.state.background)
+            ? '#000'
+            : '#fff'
+        }}
+      >
         <Results
           foreground={this.state.foreground}
           background={this.state.background}

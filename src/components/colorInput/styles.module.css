@@ -1,13 +1,14 @@
 .pickerContainer {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  bottom: 90%;
   left: 0;
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  padding: 20px;
+}
+
+.container {
+  position: relative;
 }
 
 .button {
@@ -16,4 +17,25 @@
   appearance: none;
   border: solid 2px #fff;
   border-radius: 3px;
+}
+
+.buttonLabel,
+.labelText,
+.labelHex {
+  display: block;
+  text-align: center;
+}
+
+.labelText {
+  font-size: 14px;
+  line-height: 15px;
+  margin-bottom: 5px;
+}
+
+.labelHex {
+  font-size: 14px;
+  line-height: 15px;
+  margin-top: 5px;
+  font-style: normal;
+  letter-spacing: 0.2px;
 }

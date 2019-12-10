@@ -30,8 +30,10 @@ export default class ColorInput extends Component<IColorInputProps, IColorInputS
   render() {
     return (
       <div className={styles.container}>
-        <label>
-          <b>{this.props.label}</b>
+        <label className={styles.buttonLabel}>
+          <b className={styles.labelText}>
+            {this.props.label}
+          </b>
           <button
             className={styles.button}
             onClick={this.toggleShowPicker}
@@ -39,7 +41,9 @@ export default class ColorInput extends Component<IColorInputProps, IColorInputS
               backgroundColor: this.props.color.hex()
             }}
           />
-          <i>{this.props.color.hex()}</i>
+          <i className={styles.labelHex}>
+            {this.props.color.hex()}
+          </i>
         </label>
         {this.state.showColorPicker && (
           <div

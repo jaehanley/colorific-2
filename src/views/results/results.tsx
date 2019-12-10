@@ -123,14 +123,7 @@ const Achromatopsia = (props: IResultsProps) => (
 );
 
 const Results = (props: IResultsProps) => (
-  <div
-    className={styles.view}
-    style={{
-      backgroundColor: contrast('#000', props.background) >= contrast('#fff', props.background)
-      ? '#000'
-      : '#fff'
-    }}
-  >
+  <div className={styles.view}>
     <Common
       foreground={props.foreground}
       background={props.background}
