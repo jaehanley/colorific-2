@@ -14,15 +14,22 @@ export default class ColorInput extends Component<IColorInputProps, IColorInputS
     this.pickerContainerElem = elem
   );
 
-  toggleShowPicker = () => this.setState({
+  private toggleShowPicker = () => this.setState({
     showColorPicker: !this.state.showColorPicker
-  });
+  }, () => setTimeout(() => {
+      if (this.state.showColorPicker) {
+        window.addEventListener('click', this.handlePickerClick);
+      } else {
+        window.removeEventListener('click', this.handlePickerClick);
+      }
+    }, 0)
+  );
 
-  handleColorChange = (color: ColorResult) =>
+  private handleColorChange = (color: ColorResult) =>
     this.props.onChange(Chroma(color.hex));
 
-  handlePickerClick = (e: React.MouseEvent) => {
-    if (e.target === this.pickerContainerElem) {
+  private handlePickerClick = (e: MouseEvent) => {
+    if (e.target !== this.pickerContainerElem && !(e.target && this.pickerContainerElem && this.pickerContainerElem.contains(e.target as Element))) {
       this.toggleShowPicker();
     }
   }
@@ -49,7 +56,6 @@ export default class ColorInput extends Component<IColorInputProps, IColorInputS
           <div
             ref={this.pickerContainerElemRef}
             className={styles.pickerContainer}
-            onClick={this.handlePickerClick}
           >
             <SketchPicker
               color={this.props.color.hex()}
