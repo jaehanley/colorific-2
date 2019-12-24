@@ -1,8 +1,61 @@
 import React, { Component} from 'react';
-import { ChromePicker, ColorResult } from 'react-color';
+import {
+  CustomPicker,
+  CustomPickerProps,
+  ColorResult
+} from 'react-color';
+import {
+  EditableInput,
+  Hue,
+  Saturation
+} from 'react-color/lib/components/common';
 import Chroma from 'chroma-js';
 import styles from './styles.module.css';
 import { IColorInputProps, IColorInputState } from './types';
+
+const CustomHuePointer = () =>
+  <div className={styles.huePickerCircle} />
+
+const CustomSaturationPointer = () =>
+  <div className={styles.saturationPickerCircle} />
+
+const ColorPickerComponent = (props: CustomPickerProps<HTMLDivElement>) => {
+  return (
+    <div className={styles.pickerView}>
+      <div className={styles.colorInputContainer}>
+        <div className={styles.saturationContainer}>
+          <Saturation
+            {...(props as any)}
+            pointer={CustomSaturationPointer}
+          />
+        </div>
+        <div className={styles.hueContainer}>
+          <Hue
+            {...(props as any)}
+            pointer={CustomHuePointer}
+          />
+        </div>
+        <div className={styles.colorTextInputContainer}>
+          <EditableInput
+            {...(props as any)}
+            label={null}
+            value={props.color}
+            style={{
+              input: {
+                fontSize: '16px',
+                lineHeight: '20px',
+                width: '100%',
+                padding: '5px'
+              }
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const ColorPicker = CustomPicker(ColorPickerComponent);
 
 export default class ColorInput extends Component<IColorInputProps, IColorInputState> {
   state = {
@@ -81,10 +134,9 @@ export default class ColorInput extends Component<IColorInputProps, IColorInputS
             ref={this.pickerContainerElemRef}
             className={styles.pickerContainer}
           >
-            <ChromePicker
+            <ColorPicker
               color={this.props.color.hex()}
               onChange={this.handleColorChange}
-              disableAlpha
             />
             <button
               className={styles.doneBtn}

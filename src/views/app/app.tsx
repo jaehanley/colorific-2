@@ -7,11 +7,14 @@ import styles from './styles.module.css';
 import { IAppState } from './types';
 
 const defaultToDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const defaultLight = Chroma('#fbffef');
+const defaultDark = Chroma('#030120');
+
 
 export default class App extends Component<{}, IAppState> {
   state: IAppState = {
-    foreground: defaultToDark ? Chroma('#eee') : Chroma('#111'),
-    background: defaultToDark ? Chroma('#111') : Chroma('#eee'),
+    foreground: defaultToDark ? defaultLight : defaultDark,
+    background: defaultToDark ? defaultDark : defaultLight,
     swatches: []
   }
 
