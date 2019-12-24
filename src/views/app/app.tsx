@@ -25,6 +25,9 @@ export default class App extends Component<{}, IAppState> {
    */
   private setBackground = (background: Color) => this.setState({ background });
 
+  /**
+   * Swaps the foreground and background colors
+   */
   private swapColors = () => this.setState({
     foreground: this.state.background,
     background: this.state.foreground

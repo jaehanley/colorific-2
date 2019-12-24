@@ -5,3 +5,12 @@
   padding: 5px 20px;
   align-items: center;
 }
+
+.swapButton {
+  appearance: none;
+  background: transparent;
+  border: 0 none;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+}
