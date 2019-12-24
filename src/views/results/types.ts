@@ -1,6 +1,9 @@
-import { IAppState } from '../app/types';
+import { Color } from 'chroma-js';
 
-export interface IResultsProps extends IAppState {};
+export interface IResultsProps {
+  foreground: Color;
+  background: Color;
+};
 
 export interface IResultViewProps extends IResultsProps {
   label: string;

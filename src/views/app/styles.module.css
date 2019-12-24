@@ -9,3 +9,11 @@
   grid-template-rows: auto 80px;
   row-gap: 1px;
 }
+
+.controllers {
+  display: flex;
+  flex-direction: row;
+  background-color: #000;
+  align-items: center;
+  justify-content: space-between;
+}
