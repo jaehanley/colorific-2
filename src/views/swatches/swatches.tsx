@@ -82,7 +82,7 @@ export default class Swatches extends Component<ISwatchesProps> {
                   <div
                     className={styles.foreground}
                     style={{
-                      borderColor: `transparent transparent transparent ${swatch.foreground.hex()}`
+                      borderColor: `transparent ${swatch.foreground.hex()} transparent transparent`
                     }}
                   />
                 </button>
