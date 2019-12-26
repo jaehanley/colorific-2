@@ -81,16 +81,16 @@ export default class ColorInput extends Component<IColorInputProps, IColorInputS
     showColorPicker: !this.state.showColorPicker
   }, () => setTimeout(() => {
       if (this.state.showColorPicker) {
-        window.addEventListener('click', this.handlePickerClick);
+        window.addEventListener('mousedown', this.handlePickerClick);
       } else {
-        window.removeEventListener('click', this.handlePickerClick);
+        window.removeEventListener('mousedown', this.handlePickerClick);
       }
     }, 0)
   );
 
   private hidePicker = () => this.setState({
     showColorPicker: false,
-  }, () => window.removeEventListener('click', this.handlePickerClick));
+  }, () => window.removeEventListener('mousedown', this.handlePickerClick));
 
   /**
    * Sends the updated color value to the parent as a Chroma color object
@@ -108,7 +108,7 @@ export default class ColorInput extends Component<IColorInputProps, IColorInputS
   }
 
   componentWillUnmount() {
-    window.removeEventListener('click', this.handlePickerClick);
+    window.removeEventListener('mousedown', this.handlePickerClick);
   }
 
   render() {
