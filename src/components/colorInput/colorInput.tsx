@@ -119,6 +119,7 @@ export default class ColorInput extends Component<IColorInputProps, IColorInputS
             {this.props.label}
           </b>
           <button
+            aria-label={this.props.label}
             className={styles.button}
             onClick={this.toggleShowPicker}
             style={{

@@ -1,7 +1,6 @@
 .view {
   display: flex;
   color: #fff;
-  padding: 0 20px;
   align-items: center;
   flex-grow: 0;
   flex-shrink: 0;
@@ -14,4 +13,16 @@
   width: 40px;
   height: 40px;
   margin: 0 10px;
+  padding: 0;
+}
+
+.swapButton img {
+  display: bloc;
+}
+
+@media (max-width: 500px) {
+  .swapButton {
+    width: 30px;
+    margin: 0 5px;
+  }
 }
