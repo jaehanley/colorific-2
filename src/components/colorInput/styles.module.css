@@ -70,6 +70,7 @@
 .hueContainer,
 .saturationContainer {
   position: relative;
+  user-select: none;
 }
 
 .hueContainer {
@@ -90,6 +91,7 @@
 
 .huePickerCircle {
   transform: translate(-50%, -6px);
+  user-select: none;
 }
 
 .saturationContainer {
@@ -99,4 +101,5 @@
 .saturationPickerCircle {
   transform: translate(-50%, -50%);
   pointer-events: all;
+  user-select: none;
 }

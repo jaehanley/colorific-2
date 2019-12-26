@@ -129,10 +129,11 @@
   appearance: none;
   border: 0 none;
   background: transparent;
-  width: 20px;
+  width: 12px;
   height: 20px;
   top: 12px;
-  right: -2px;
+  right: 0;
+  padding: 0;
   pointer-events: all;
 }
 
@@ -153,5 +154,9 @@
 }
 
 .deleteBtn:focus::after {
+  display: block;
+}
+
+.deleteBtn img {
   display: block;
 }
