@@ -46,7 +46,7 @@ export default class Swatches extends Component<ISwatchesProps> {
    * @param prevProps the snapshot saves prior to props changes
    */
   componentDidUpdate(prevProps: ISwatchesProps) {
-    if (prevProps.swatches.length !== this.props.swatches.length) {
+    if (prevProps.swatches.length < this.props.swatches.length) {
       this.scrollContainerToEnd();
     }
   } 
